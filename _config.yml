@@ -1,0 +1,8 @@
+title: "SAP Transformation Lab"
+description: description: "Ein unabhängiges SAP-Transformationslabor mit der Long Life Sciences Group (LLSG) – The Model Company: von Geschäftsprozessen und Architektur bis zur Umsetzung in SAP S/4HANA."
+lang: "de-DE"
+timezone: "Europe/Berlin"
+url: "https://joachimschirra.github.io"
+baseurl: "/sap-transformation-lab"
+theme: minima
+permalink: pretty
