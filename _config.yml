@@ -6,3 +6,12 @@ url: "https://joachimschirra.github.io"
 baseurl: "/sap-transformation-lab"
 theme: minima
 permalink: pretty
+
+header_pages:
+  - llsg/index.md
+  - inside-llsg/index.md
+  - sap-journey/index.md
+  - projects/index.md
+  - abap/index.md
+  - journal/index.md
+  - about.md
