@@ -80,6 +80,7 @@ exclude:
   - package.json
   - package-lock.json
   - lighthouserc.json
+  - node_modules
   - _media-source
 
 plugins:
