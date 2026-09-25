@@ -1,0 +1,292 @@
+# Direct browser uploads are intentionally disabled. Images are imported locally
+# through the audited _media-source -> generated derivative pipeline. CMS fields
+# store only an already generated public path.
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      create: "Redaktion: {action} {path}"
+      update: "Redaktion: {action} {path}"
+      delete: "Redaktion: {action} {path}"
+      rename: "Redaktion: {action} {oldPath} → {newPath}"
+
+content:
+  - name: about_me
+    label: Über mich
+    type: file
+    path: joachim-schirra/index.md
+    fields:
+      - { name: title, label: Seitentitel, type: string, required: true }
+      - { name: eyebrow, label: Dachzeile, type: string, required: true }
+      - { name: lead, label: Einleitung, type: text, required: true }
+      - { name: description, label: SEO-Beschreibung, type: text, required: true }
+      - { name: body, label: Persönliches Profil, type: rich-text, required: true }
+      - { name: layout, type: string, hidden: true, default: page }
+      - { name: permalink, type: string, hidden: true, default: /joachim-schirra/ }
+      - { name: content_type, type: string, hidden: true, default: profile }
+
+  - name: people
+    label: Personen und Personas
+    type: collection
+    path: inside-llsg/people
+    subfolders: true
+    exclude: [index.md]
+    filename: "{primary}/index.md"
+    view:
+      primary: title
+      fields: [role, status]
+      sort: title
+    fields:
+      - { name: title, label: Name, type: string, required: true }
+      - { name: role, label: Rolle, type: string, required: true }
+      - { name: summary, label: Kurzprofil, type: text, required: true }
+      - { name: lead, label: Einleitung, type: text, required: true }
+      - { name: location, label: Ort, type: string, required: false }
+      - { name: image, label: Porträt, type: string, required: false, pattern: '^/assets/images/generated/[a-z0-9][a-z0-9-]*-[1-9][0-9]*\.(webp|avif)$' }
+      - { name: image_alt, label: Alternativtext zum Porträt, type: string, required: false }
+      - { name: fiction_note, label: Fiktivitätshinweis, type: text, required: true }
+      - { name: status, label: Profilstatus, type: select, options: { values: [Fictional Character, Profile in Development] } }
+      - { name: body, label: Ausführliches Profil, type: rich-text, required: true }
+      - { name: layout, type: string, hidden: true, default: person }
+      - { name: eyebrow, type: string, hidden: true, default: People of LLSG }
+      - { name: nav_inside, type: boolean, hidden: true, default: true }
+      - { name: content_type, type: string, hidden: true, default: person }
+      - { name: fictional, type: boolean, hidden: true, default: true }
+      - { name: description, label: SEO-Beschreibung, type: text, required: true }
+
+  - name: products
+    label: Produkte
+    type: collection
+    path: llsg/specialty-pharmaceuticals
+    subfolders: true
+    exclude: [index.md]
+    filename: "{primary}/index.md"
+    view:
+      primary: title
+      fields: [business_area, product_status, product_id]
+    fields:
+      - { name: title, label: Produktname, type: string, required: true }
+      - { name: product_id, label: Produkt-ID, type: string, required: true }
+      - { name: business_area, label: Geschäftsfeld, type: string, required: true }
+      - { name: product_status, label: Produktstatus, type: string, required: true }
+      - { name: lead, label: Kurzbeschreibung, type: text, required: true }
+      - { name: image, label: Produktbild, type: string, required: false, pattern: '^/assets/images/generated/[a-z0-9][a-z0-9-]*-[1-9][0-9]*\.(webp|avif)$' }
+      - { name: image_alt, label: Alternativtext zum Produktbild, type: string, required: false }
+      - { name: base_unit, label: Basismengeneinheit, type: string, required: false }
+      - { name: packaging, label: Verpackung, type: text, required: false }
+      - { name: procurement, label: Beschaffung, type: text, required: false }
+      - { name: batch_management, label: Chargenführung, type: string, required: false }
+      - { name: quality, label: Qualitätsanforderung, type: text, required: false }
+      - { name: shelf_life, label: Haltbarkeit, type: string, required: false }
+      - { name: fiction, label: Fiktivität, type: text, required: true }
+      - { name: body, label: Produktdossier, type: rich-text, required: true }
+      - { name: layout, type: string, hidden: true, default: page }
+      - { name: nav_llsg, type: boolean, hidden: true, default: true }
+      - { name: content_type, type: string, hidden: true, default: product }
+      - { name: description, label: SEO-Beschreibung, type: text, required: true }
+
+  - name: projects
+    label: Projekte und Gates
+    type: collection
+    path: projects
+    subfolders: true
+    exclude: [index.md]
+    view:
+      primary: title
+      fields: [project_name, content_type]
+    fields:
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: project_name, label: Projekt, type: string, required: true }
+      - { name: lead, label: Kurzbeschreibung, type: text, required: true }
+      - { name: executive_summary, label: Executive Summary, type: text, required: true }
+      - { name: business_relevance, label: Geschäftliche Relevanz, type: text, required: true }
+      - { name: joachim_contribution, label: Joachims Beitrag, type: text, required: true }
+      - { name: transformation_insight, label: Erkenntnis für reale Transformationen, type: text, required: true }
+      - { name: gate_id, label: Zugehörige Gate-ID, type: string, required: false }
+      - { name: body, label: Dokumentation, type: rich-text, required: true }
+      - { name: layout, type: string, hidden: true, default: project }
+      - { name: nav_projects, type: boolean, hidden: true, default: true }
+      - { name: content_type, type: string, hidden: true, default: project }
+      - { name: description, label: SEO-Beschreibung, type: text, required: true }
+
+  - name: project_status
+    label: Zentraler Projektstatus
+    type: file
+    path: _data/project_status.json
+    format: json
+    fields:
+      - { name: projectId, label: Projekt-ID, type: string, required: true }
+      - { name: projectName, label: Projektname, type: string, required: true }
+      - { name: system, label: System, type: string, required: true }
+      - { name: organisation, label: Organisation, type: string, required: true }
+      - { name: modules, label: Module, type: string, required: true }
+      - { name: productProcess, label: Produkt und Prozess, type: string, required: true }
+      - { name: deliveryStatus, label: Umsetzungsstatus, type: select, options: { values: [Idee, Geplant, Entschieden, Konfiguriert, Getestet] }, required: true }
+      - { name: deliveryStatusKey, type: string, hidden: true, default: tested }
+      - { name: evidenceStatus, label: Öffentlicher Nachweisstatus, type: select, options: { values: [Nicht veröffentlicht, Vorbereitet, Veröffentlicht] }, required: true }
+      - { name: evidenceStatusKey, type: string, hidden: true, default: prepared }
+      - { name: currentGateId, label: Aktuelles Gate, type: string, required: true }
+      - { name: lastReachedGateId, label: Zuletzt erreichtes Gate, type: string, required: true }
+      - { name: nextGateId, label: Nächstes Gate, type: string, required: true }
+      - { name: lastResult, label: Letztes Ergebnis, type: text, required: true }
+      - { name: nextStep, label: Nächster Schritt, type: text, required: true }
+      - { name: updated, label: Letzte Aktualisierung, type: date, required: true }
+
+  - name: portfolio_roadmap
+    label: LLSG-Gesamtroadmap
+    type: file
+    path: _data/portfolio_roadmap.json
+    format: json
+    list: true
+    fields:
+      - { name: id, label: Technische ID, type: string, required: true }
+      - { name: horizon, label: Horizont, type: select, options: { values: [current, next, later, future] }, required: true }
+      - { name: horizonLabel, label: Überschrift des Horizonts, type: string, required: true }
+      - { name: title, label: Vorhaben, type: string, required: true }
+      - { name: status, label: Status, type: string, required: true }
+      - { name: summary, label: Kurzbeschreibung, type: text, required: true }
+      - { name: url, label: Optionale interne Zieladresse, type: string, required: false }
+
+  - name: business_episodes
+    label: Business Episodes
+    type: collection
+    path: inside-llsg/business-episodes/items
+    subfolders: true
+    filename: "{primary}/index.md"
+    fields:
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: date, label: Datum, type: date, required: true }
+      - { name: summary, label: Kurzbeschreibung, type: text, required: true }
+      - { name: related_project, label: Zugehöriges Projekt, type: string, required: false }
+      - { name: related_evidence, label: Evidence-IDs, type: string, required: false }
+      - { name: image, label: Episodenbild, type: string, required: false, pattern: '^/assets/images/generated/[a-z0-9][a-z0-9-]*-[1-9][0-9]*\.(webp|avif)$' }
+      - { name: image_alt, label: Alternativtext zum Episodenbild, type: string, required: false }
+      - { name: body, label: Episode, type: rich-text, required: true }
+      - { name: layout, type: string, hidden: true, default: page }
+      - { name: nav_inside, type: boolean, hidden: true, default: true }
+      - { name: content_type, type: string, hidden: true, default: business_episode }
+      - { name: fictional, type: boolean, hidden: true, default: true }
+      - { name: description, label: SEO-Beschreibung, type: text, required: true }
+
+  - name: off_duty
+    label: Off Duty
+    type: collection
+    path: inside-llsg/off-duty/items
+    subfolders: true
+    filename: "{primary}/index.md"
+    fields:
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: date, label: Datum, type: date, required: true }
+      - { name: summary, label: Kurzbeschreibung, type: text, required: true }
+      - { name: image, label: Storybild, type: string, required: false, pattern: '^/assets/images/generated/[a-z0-9][a-z0-9-]*-[1-9][0-9]*\.(webp|avif)$' }
+      - { name: image_alt, label: Alternativtext zum Storybild, type: string, required: false }
+      - { name: body, label: Geschichte, type: rich-text, required: true }
+      - { name: layout, type: string, hidden: true, default: page }
+      - { name: nav_inside, type: boolean, hidden: true, default: true }
+      - { name: content_type, type: string, hidden: true, default: off_duty }
+      - { name: fictional, type: boolean, hidden: true, default: true }
+      - { name: description, label: SEO-Beschreibung, type: text, required: true }
+
+  - name: journal
+    label: Build Journal
+    type: collection
+    path: journal/entries
+    subfolders: true
+    filename: "{primary}/index.md"
+    fields:
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: date, label: Datum, type: date, required: true }
+      - { name: summary, label: Kurzbeschreibung, type: text, required: true }
+      - { name: delivery_status, label: Umsetzungsstatus, type: select, options: { values: [Idee, Geplant, Entschieden, Konfiguriert, Getestet] } }
+      - { name: evidence_status, label: Nachweisstatus, type: select, options: { values: [Nicht veröffentlicht, Vorbereitet, Veröffentlicht] } }
+      - { name: next_step, label: Nächster Schritt, type: text, required: false }
+      - { name: image, label: Titelbild, type: string, required: false, pattern: '^/assets/images/generated/[a-z0-9][a-z0-9-]*-[1-9][0-9]*\.(webp|avif)$' }
+      - { name: image_alt, label: Alternativtext zum Titelbild, type: string, required: false }
+      - { name: body, label: Journaleintrag, type: rich-text, required: true }
+      - { name: layout, type: string, hidden: true, default: page }
+      - { name: nav_journal, type: boolean, hidden: true, default: true }
+      - { name: content_type, type: string, hidden: true, default: journal }
+      - { name: description, label: SEO-Beschreibung, type: text, required: true }
+
+  - name: evidence
+    label: Evidence Register
+    type: file
+    path: _data/evidence.json
+    format: json
+    list: true
+    fields:
+      - { name: id, label: Evidence-ID, type: string, required: true, pattern: "^[A-Z0-9]+-[0-9]{2}$" }
+      - { name: project, label: Projekt, type: string, required: true }
+      - { name: gate, label: Gate, type: string, required: true }
+      - { name: modules, label: Module, type: string, required: true }
+      - { name: process, label: Prozess, type: string, required: true }
+      - { name: product, label: Produkt, type: string, required: false }
+      - { name: documentType, label: Nachweisart, type: string, required: true }
+      - { name: claim, label: Belegte Aussage, type: text, required: true }
+      - { name: deliveryStatus, label: Umsetzungsstatus, type: select, options: { values: [Idee, Geplant, Entschieden, Konfiguriert, Getestet] } }
+      - { name: evidenceStatus, label: Nachweisstatus, type: select, options: { values: [Nicht veröffentlicht, Vorbereitet, Veröffentlicht] } }
+      - { name: captured, label: Aufnahmedatum, type: string, required: true }
+      - { name: image, label: Screenshot, type: string, required: false, pattern: '^/assets/images/generated/[a-z0-9][a-z0-9-]*-[1-9][0-9]*\.(webp|avif)$' }
+      - { name: alt, label: Alternativtext, type: text, required: false }
+
+  - name: gates
+    label: Gate Roadmap
+    type: file
+    path: _data/gates.json
+    format: json
+    list: true
+    fields:
+      - { name: id, label: Technische ID, type: string, required: true, pattern: "^gate-[0-9]+[a-z]?$" }
+      - { name: label, label: Gate-Bezeichnung, type: string, required: true }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: phase, label: Phase, type: select, options: { values: [done, next, planned] }, required: true }
+      - { name: status, label: Kurzstatus Startseite, type: string, required: true }
+      - { name: roadmapStatus, label: Status Projektseite, type: string, required: true }
+      - { name: detailStatus, label: Status Detailfläche, type: string, required: true }
+      - { name: summary, label: Zusammenfassung, type: text, required: true }
+      - name: evidenceIds
+        label: Evidence-IDs (erreichte Gates)
+        type: string
+        list: true
+        required: false
+      - name: plannedResults
+        label: Geplante Ergebnisse (zukünftige Gates)
+        type: string
+        list: true
+        required: false
+      - { name: url, label: Zieladresse, type: string, required: true }
+      - { name: linkLabel, label: Linkbeschriftung, type: string, required: true }
+      - { name: selected, label: Initial ausgewählt, type: boolean, required: false, default: false }
+      - { name: testedAt, label: Testdatum, type: date, required: false }
+
+  - name: xray_gate_2
+    label: LLSG X-Ray · Gate 2
+    type: file
+    path: _data/xray_gate_2.json
+    format: json
+    list: true
+    fields:
+      - { name: number, label: Schritt, type: string, required: true }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: business, label: Business-Ereignis, type: text, required: true }
+      - { name: sap, label: SAP-Aktion, type: text, required: true }
+      - { name: modules, label: Module, type: string, required: true }
+      - { name: objects, label: SAP-Objekte und Organisation, type: text, required: true }
+      - { name: proof, label: Evidence-ID, type: string, required: true }
+      - { name: status, label: Status, type: string, required: true }
+      - { name: story, label: Optionale Story-Notiz, type: text, required: false }
+
+  - name: latest
+    label: Neu im Lab
+    type: file
+    path: _data/latest.json
+    format: json
+    list: true
+    fields:
+      - { name: date, label: Datum, type: date, required: true }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: summary, label: Kurzbeschreibung, type: text, required: true }
+      - { name: url, label: Interne Zieladresse, type: string, required: true }

@@ -1,0 +1,25 @@
+# Public production remains blocked until the operator has completed and
+# approved every item below. Do not insert fictional legal data.
+environment: production
+production_ready: false
+repository_public: false
+
+security:
+  review_approved: false
+  reviewed_at: ""
+
+legal:
+  approved: false
+  imprint_complete: false
+  privacy_complete: false
+  reviewed_at: ""
+
+contact:
+  enabled: false
+  email: ""
+  linkedin: ""
+
+analytics:
+  enabled: false
+  provider: cloudflare
+  token: ""

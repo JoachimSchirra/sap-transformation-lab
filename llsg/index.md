@@ -1,40 +1,28 @@
 ---
 layout: page
-title: LLSG
+title: Long Life Sciences GmbH
 permalink: /llsg/
+eyebrow: The Model Company · vollständig fiktiv
+lead: Die konsistente Unternehmens- und Prozesswelt, an der das SAP Transformation Lab seine Entscheidungen, Builds und Tests nachvollziehbar macht.
+description: Die fiktive Long Life Sciences GmbH als Modellunternehmen mit drei strategischen Geschäftsfeldern im SAP Transformation Lab.
+nav_llsg: true
+fictional: true
 ---
 
-**Long Life Sciences Group (LLSG) – The Model Company** ist ein vollständig fiktives Modellunternehmen im Zentrum des Projekts **SAP Transformation Lab**.
+## Eine Unternehmenswelt statt einzelner Demos
 
-LLSG steht für Longevity: für die Frage, wie Menschen möglichst lange gesund, aktiv, vital und selbstbestimmt leben und sich körperliche und geistige Jugendlichkeit bewahren können. Rund um diese Leitidee entsteht ein eigenständiges fiktives Geschäftsmodell mit pharmazeutischen, ernährungsbezogenen und medizintechnischen Angeboten.
+LLSG verbindet Geschäftsmodell, Organisation, Produkte und realistisch modellierte End-to-End-Prozesse zu einem konsistenten Kontext. Dadurch lassen sich SAP-Entscheidungen nicht isoliert, sondern mit ihren fachlichen, logistischen, qualitativen und finanziellen Folgen betrachten.
 
-Die Angebote richten sich an Menschen in unterschiedlichen Lebensphasen, die ihre Vitalität, Mobilität, Widerstandsfähigkeit und Selbstständigkeit erhalten oder wiedergewinnen möchten.
+## Drei strategische Geschäftsfelder
 
-> **Unabhängigkeitshinweis:** LLSG existiert ausschließlich innerhalb dieses persönlichen und unabhängigen SAP-Projekts. Das Modellunternehmen bildet kein reales Unternehmen ab und wurde weder für noch im Auftrag oder mit Blick auf ein bestimmtes Unternehmen entwickelt. Es handelt sich weder um eine Unternehmensdarstellung noch um ein Beratungsangebot.
+<div class="card-grid three-cards compact-card-grid">
+<a class="business-card" href="{{ '/llsg/specialty-pharmaceuticals/' | relative_url }}"><span class="card-number">01</span><div class="card-icon" aria-hidden="true">Rx</div><h3>Specialty Pharmaceuticals</h3><p>Operativer Kernbereich rund um CHRONUNDO, Beschaffung, Charge, Qualität und Finance.</p></a>
+<a class="business-card" href="{{ '/llsg/medical-devices-mobility/' | relative_url }}"><span class="card-number">02</span><div class="card-icon" aria-hidden="true">M°</div><h3>Medical Devices &amp; Mobility</h3><p>Medizinische Geräte und hochwertige Assistenz- und Mobilitätslösungen.</p></a>
+<a class="business-card" href="{{ '/llsg/digital-health-connected-care/' | relative_url }}"><span class="card-number">03</span><div class="card-icon" aria-hidden="true">D+</div><h3>Digital Health &amp; Connected Care</h3><p>Strategisches Zukunftsfeld; gegenwärtig noch nicht operativ aufgebaut.</p><span class="card-status">Planned Business Area</span></a>
+</div>
 
-## Düsseldorf und Duisburg
+## Klare Grenze zur Realität
 
-Der Hauptsitz von LLSG befindet sich bewusst in Düsseldorf, das zentrale Lager in Duisburg. Damit ist die fiktive Unternehmenswelt in der Rhein-Ruhr-Region angesiedelt, mit der ich persönlich eng verbunden bin.
+Long Life Sciences GmbH existiert ausschließlich als Modellunternehmen dieses Projekts. Sie stellt keine realen Produkte her, bietet keine Dienstleistungen an und ist mit keinem realen Unternehmen gleichen oder ähnlichen Namens verbunden.
 
-Die Wahl dieser Standorte ist eine persönliche und erzählerische Entscheidung. Sie ist nicht aus Standorten, Organisationsstrukturen oder Geschäftsmodellen eines realen Unternehmens abgeleitet.
-
-## Rolle im SAP Transformation Lab
-
-LLSG liefert den synthetischen fachlichen Rahmen, in dem durchgängige Geschäftsprozesse in SAP S/4HANA konzipiert, umgesetzt, getestet und nachvollziehbar dokumentiert werden.
-
-Ausgangspunkt sind die fachlichen Anforderungen des Modellunternehmens. Daraus werden Organisationsstrukturen, Stammdaten, Prozessentscheidungen, Architekturbausteine und technische Umsetzungen abgeleitet.
-
-Dabei wird klar zwischen unterschiedlichen Projektständen unterschieden:
-
-- geplant
-- beschlossen
-- implementiert
-- getestet
-
-Nicht jede beschriebene Zielsetzung ist bereits im SAP-System umgesetzt. Der jeweilige Status wird deshalb bei den veröffentlichten Inhalten ausdrücklich kenntlich gemacht.
-
-## Fiktion und Datenschutz
-
-Unternehmensidentitäten, Personen, Produkte, Geschäftspartner und Geschäftsdaten werden eigens für das SAP Transformation Lab entwickelt und vor ihrer Veröffentlichung geprüft.
-
-Vertrauliche Informationen, Originaldaten, Systemdetails oder unternehmensspezifische Dokumente aktueller oder früherer Arbeitgeber und Kunden werden nicht übernommen oder veröffentlicht. Ähnlichkeiten mit realen Unternehmen können sich ausschließlich aus allgemein üblichen Branchenabläufen und SAP-Standardprozessen ergeben.
+[Die SAP Journey nachvollziehen →]({{ '/sap-journey/' | relative_url }})

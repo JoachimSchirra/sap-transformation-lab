@@ -1,0 +1,14 @@
+[
+  {"name":"evidence_open","purpose":"Testnachweis oder Nachweisstandard öffnen"},
+  {"name":"gate_open","purpose":"Gate-Detailseite öffnen"},
+  {"name":"screenshot_open","purpose":"SAP-Screenshot vergrößern"},
+  {"name":"person_detail_open","purpose":"Personen-Detailseite über Mehr öffnen"},
+  {"name":"business_episode_open","purpose":"Business Episode öffnen"},
+  {"name":"off_duty_open","purpose":"Off-Duty-Geschichte öffnen"},
+  {"name":"product_open","purpose":"Produktdossier öffnen"},
+  {"name":"xray_open","purpose":"LLSG-X-Ray-Szenario öffnen"},
+  {"name":"linkedin_open","purpose":"LinkedIn-Profil öffnen"},
+  {"name":"download","purpose":"Projektdokument herunterladen"},
+  {"name":"contact_submit","purpose":"Kontaktformular erfolgreich absenden; niemals Formulardaten übertragen"},
+  {"name":"not_found","purpose":"404-Aufruf"}
+]

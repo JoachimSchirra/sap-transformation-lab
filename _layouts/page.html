@@ -1,0 +1,59 @@
+---
+layout: default
+---
+<section class="subpage-hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="section-inner subpage-hero-inner">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Start</a><span aria-hidden="true">›</span>
+      {% if page.nav_journey or page.url == '/abap/' %}<a href="{{ '/sap-journey/' | relative_url }}">Prozesse &amp; Lösungsdesign</a>
+      {% elsif page.nav_projects or page.nav_journal %}<a href="{{ '/projects/' | relative_url }}">Build &amp; Roadmap</a>
+      {% elsif page.nav_evidence or page.url == '/evidence/' or page.url == '/evidence/standard/' or page.url == '/xray/gate-2/' %}<a href="{{ '/evidence/' | relative_url }}">Test &amp; Nachweise</a>
+      {% elsif page.nav_llsg %}<a href="{{ '/llsg/' | relative_url }}">Modellunternehmen</a>
+      {% elsif page.nav_inside %}<a href="{{ '/inside-llsg/' | relative_url }}">Inside LLSG</a>
+      {% else %}<a href="{{ '/about/' | relative_url }}">Über das Lab</a>{% endif %}
+      {% unless page.url == '/about/' or page.url == '/llsg/' or page.url == '/inside-llsg/' or page.url == '/sap-journey/' or page.url == '/projects/' or page.url == '/evidence/' %}<span aria-hidden="true">›</span><span aria-current="page">{{ page.title | escape }}</span>{% endunless %}
+    </nav>
+    <p class="eyebrow">{{ page.eyebrow | default: 'SAP Transformation Lab' | escape }}</p>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.lead %}<p class="hero-lead">{{ page.lead | escape }}</p>{% endif %}
+    {% if page.status_source == 'project' %}
+      {% assign project = site.data.project_status %}{% assign current_gate = site.data.gates | where: "id", project.currentGateId | first %}
+      <span class="status-badge subpage-status"><span></span>{{ current_gate.label | escape }} · {{ project.deliveryStatus | escape }} · Evidence {{ project.evidenceStatus | escape }}</span>
+    {% elsif page.status_source == 'gate' %}
+      {% assign gate = site.data.gates | where: "id", page.gate_id | first %}{% assign project = site.data.project_status %}
+      <span class="status-badge subpage-status"><span></span>{{ gate.status | escape }} · Evidence {{ project.evidenceStatus | escape }}</span>
+    {% elsif page.status %}<span class="status-badge subpage-status"><span></span>{{ page.status | escape }}</span>{% endif %}
+  </div>
+</section>
+
+<section class="section content-section">
+  <div class="section-inner content-layout">
+    <article class="prose">
+      {% if page.fictional %}<p class="fiction-banner"><strong>Fiktive Modellwelt:</strong> Dieser Inhalt gehört zur vollständig fiktiven LLSG-Unternehmenswelt.</p>{% endif %}
+      {% if page.image %}<figure class="editorial-hero"><img src="{{ page.image | relative_url | escape }}" alt="{{ page.image_alt | escape }}" width="1200" height="750"{% unless page.permalink == '/' %} loading="lazy"{% endunless %}>{% if page.image_caption %}<figcaption>{{ page.image_caption | escape }}</figcaption>{% endif %}</figure>{% endif %}
+      {{ content }}
+    </article>
+    <aside class="context-card" aria-label="Kontext und weiterführende Inhalte">
+      {% if page.nav_journey or page.url == '/abap/' %}
+        <p class="section-kicker">In diesem Bereich</p><h2>Prozesse &amp; Lösungsdesign</h2><p>Geschäftlicher Auslöser, End-to-End-Prozess und begründete SAP-Architektur.</p>
+        <nav class="context-links" aria-label="Prozesse und Lösungsdesign"><a href="{{ '/sap-journey/' | relative_url }}">Überblick</a><a href="{{ '/sap-journey/business-process-design/' | relative_url }}">Business &amp; Process Design</a><a href="{{ '/sap-journey/system-map/' | relative_url }}">Systemlandkarte</a><a href="{{ '/sap-journey/system-architecture/' | relative_url }}">Solution Architecture</a><a href="{{ '/abap/' | relative_url }}">ABAP Lab</a></nav>
+      {% elsif page.nav_projects or page.nav_journal %}
+        <p class="section-kicker">In diesem Bereich</p><h2>Build &amp; Roadmap</h2><p>Gesamtentwicklung, aktive Projekte, Gates und tatsächlicher Projektverlauf.</p>
+        <nav class="context-links" aria-label="Build und Roadmap"><a href="{{ '/projects/' | relative_url }}">Gesamtroadmap</a><a href="{{ '/projects/llsg-foundation-p2p/' | relative_url }}">Aktives P2P-Projekt</a><a href="{{ '/projects/llsg-foundation-p2p/gate-2/' | relative_url }}">Gate 2</a><a href="{{ '/journal/' | relative_url }}">Build Journal</a></nav>
+      {% elsif page.nav_evidence or page.url == '/evidence/' or page.url == '/evidence/standard/' or page.url == '/xray/gate-2/' %}
+        <p class="section-kicker">In diesem Bereich</p><h2>Test &amp; Nachweise</h2><p>Testergebnis, öffentlicher Nachweisstatus und nachvollziehbare Beweisketten.</p>
+        <nav class="context-links" aria-label="Test und Nachweise"><a href="{{ '/evidence/' | relative_url }}">Evidence Center</a><a href="{{ '/projects/llsg-foundation-p2p/gate-2/' | relative_url }}">Gate-2-Test</a><a href="{{ '/xray/gate-2/' | relative_url }}">Gate-2-X-Ray</a><a href="{{ '/evidence/standard/' | relative_url }}">So werden Nachweise bewertet</a></nav>
+      {% elsif page.nav_llsg %}
+        <p class="section-kicker">In diesem Bereich</p><h2>Modellunternehmen</h2><p>Geschäftsfelder, Produkte und der fachliche Kontext des SAP-Builds.</p>
+        <nav class="context-links" aria-label="Modellunternehmen"><a href="{{ '/llsg/' | relative_url }}">LLSG im Überblick</a><a href="{{ '/llsg/specialty-pharmaceuticals/' | relative_url }}">Specialty Pharmaceuticals</a><a href="{{ '/llsg/specialty-pharmaceuticals/chronundo/' | relative_url }}">CHRONUNDO</a><a href="{{ '/projects/llsg-foundation-p2p/' | relative_url }}">Aktiver Build</a></nav>
+      {% elsif page.nav_inside %}
+        <p class="section-kicker">In diesem Bereich</p><h2>Inside LLSG</h2><p>Der optionale menschliche und erzählerische Kontext der fiktiven Modellwelt.</p>
+        <nav class="context-links" aria-label="Inside LLSG"><a href="{{ '/inside-llsg/' | relative_url }}">Überblick</a><a href="{{ '/inside-llsg/business-episodes/' | relative_url }}">Business Episodes</a><a href="{{ '/inside-llsg/off-duty/' | relative_url }}">Off Duty</a><a href="{{ '/inside-llsg/people/' | relative_url }}">People of LLSG</a></nav>
+      {% else %}
+        <p class="section-kicker">Über das Lab</p><h2>Projekt und Urheberschaft</h2><p>Das Lab wird von Joachim Schirra konzipiert, realisiert, betrieben und weiterentwickelt.</p>
+        <nav class="context-links" aria-label="Über das Lab"><a href="{{ '/about/' | relative_url }}">Zweck und Arbeitsweise</a><a href="{{ '/joachim-schirra/' | relative_url }}">Initiator und Erbauer</a><a href="{{ '/disclaimer/' | relative_url }}">Hinweise &amp; Disclaimer</a></nav>
+      {% endif %}
+    </aside>
+  </div>
+</section>

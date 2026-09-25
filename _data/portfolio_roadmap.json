@@ -1,0 +1,51 @@
+[
+  {
+    "id": "foundation-p2p",
+    "horizon": "current",
+    "horizonLabel": "Aktiver Build",
+    "title": "Foundation & Purchase to Pay",
+    "status": "Gate 2 getestet",
+    "summary": "Organisationsfundament, Bestellung, Wareneingang und Qualitätsprüfung; Rechnungsprüfung und Zahlung folgen im selben Prozessstrang.",
+    "url": "/projects/llsg-foundation-p2p/"
+  },
+  {
+    "id": "order-to-cash",
+    "horizon": "next",
+    "horizonLabel": "Nächster Prozessstrang",
+    "title": "Order to Cash",
+    "status": "Geplante Entwicklungsrichtung",
+    "summary": "Kundenstamm, Preisfindung, Auftrag, Lieferung, Faktura sowie FI- und Ergebniswirkung werden erst mit einem freigegebenen Projekt konkretisiert."
+  },
+  {
+    "id": "finance-controlling",
+    "horizon": "later",
+    "horizonLabel": "Späterer Ausbau",
+    "title": "Finance & Controlling",
+    "status": "Ausbau vorgesehen",
+    "summary": "Periodensteuerung, Abschluss, Kostenrechnung und Ergebnisdarstellung werden entlang konkreter Geschäftsvorfälle erweitert."
+  },
+  {
+    "id": "inventory-warehouse",
+    "horizon": "later",
+    "horizonLabel": "Späterer Ausbau",
+    "title": "Inventory & Warehouse",
+    "status": "Ausbau vorgesehen",
+    "summary": "Bestandsführung, Lagerprozesse, Umlagerungen, Inventur und weitere logistische Szenarien erhalten eigene Projekte und Gates."
+  },
+  {
+    "id": "medical-devices",
+    "horizon": "future",
+    "horizonLabel": "Strategischer Horizont",
+    "title": "Medical Devices & Mobility",
+    "status": "Kernbereich im Aufbau",
+    "summary": "Produkte und spätere SAP-Szenarien werden erst bei fachlicher Freigabe als eigenständiger Build geplant."
+  },
+  {
+    "id": "digital-health",
+    "horizon": "future",
+    "horizonLabel": "Strategischer Horizont",
+    "title": "Digital Health & Connected Care",
+    "status": "Geplantes Geschäftsfeld",
+    "summary": "Strategische Zielrichtung ohne gegenwärtigen Customizing-, Stammdaten- oder Build-Auftrag."
+  }
+]

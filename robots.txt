@@ -1,0 +1,9 @@
+---
+layout: null
+permalink: /robots.txt
+search_exclude: true
+---
+User-agent: *
+{% if site.environment == 'production' and site.production_ready %}Allow: /
+
+Sitemap: {{ '/sitemap.xml' | absolute_url }}{% else %}Disallow: /{% endif %}

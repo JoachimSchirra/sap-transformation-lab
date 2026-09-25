@@ -1,0 +1,79 @@
+[
+  {
+    "number": "01",
+    "title": "Lieferung erreicht Werk LS10",
+    "business": "Die bestellte CHRONUNDO-Lieferung trifft im fiktiven LLSG-Werk Duisburg ein.",
+    "sap": "Bestellbezug und offene Menge bilden den Ausgangspunkt für die Buchung.",
+    "objects": "Bestellung · Lieferant · Material LLSG-PH-101 · Werk LS10",
+    "modules": "MM",
+    "proof": "G2-01",
+    "status": "Getestet",
+    "story": "Die Lieferung ist da. Jetzt darf das System beweisen, dass die Vorarbeit trägt."
+  },
+  {
+    "number": "02",
+    "title": "Wareneingang mit Bewegungsart 101",
+    "business": "Die gelieferte Menge wird gegen die Bestellung vereinnahmt.",
+    "sap": "Bestellbezogene Warenbewegung 101 mit Werk, Lagerort, Menge und Charge.",
+    "objects": "Warenbewegung · Bewegungsart 101 · Bestellposition",
+    "modules": "MM · FI · QM",
+    "proof": "G2-01",
+    "status": "Getestet",
+    "story": "Matze klickt erst, nachdem Grumpy zum dritten Mal nach der Bewegungsart gefragt hat."
+  },
+  {
+    "number": "03",
+    "title": "Materialbeleg entsteht",
+    "business": "Die Warenbewegung ist dauerhaft dokumentiert und im Belegfluss nachvollziehbar.",
+    "sap": "SAP erzeugt den Materialbeleg mit Menge, Werk, Lagerort und Bestandsart.",
+    "objects": "Materialbeleg · Materialbelegposition · Bestandsfortschreibung",
+    "modules": "MM",
+    "proof": "G2-02",
+    "status": "Getestet",
+    "story": "Der erste Beleg ist da – nüchtern, unspektakulär und genau deshalb schön."
+  },
+  {
+    "number": "04",
+    "title": "FI-Beleg wird automatisch erzeugt",
+    "business": "Der Wareneingang wirkt nicht nur logistisch, sondern auch wertmäßig.",
+    "sap": "Die automatische Kontenfindung erzeugt den integrierten FI-Folgebeleg.",
+    "objects": "FI-Beleg · Bestandskonto · WE/RE-Konto · Bewertungsdaten",
+    "modules": "FI · MM",
+    "proof": "G2-03",
+    "status": "Getestet",
+    "story": "Big Joe nennt es Integration. Grumpy nennt es das Mindeste, was ein ERP-System können muss."
+  },
+  {
+    "number": "05",
+    "title": "Charge und Prüflos werden verbunden",
+    "business": "Die Lieferung bleibt chargengenau rückverfolgbar und gelangt zunächst in die Qualitätsprüfung.",
+    "sap": "Interne und Lieferantencharge werden übernommen; SAP erzeugt automatisch ein Prüflos.",
+    "objects": "Charge · Lieferantencharge · Prüflos · Qualitätsprüfbestand",
+    "modules": "MM · QM",
+    "proof": "G2-04",
+    "status": "Getestet",
+    "story": "Maria interessiert nicht, dass die Ware da ist. Sie interessiert, ob sie gut ist."
+  },
+  {
+    "number": "06",
+    "title": "Ergebnis und Verwendungsentscheid",
+    "business": "Die Qualitätsprüfung wird fachlich abgeschlossen und die Charge positiv beurteilt.",
+    "sap": "Ergebniserfassung und positiver Verwendungsentscheid schließen das Prüflos ab.",
+    "objects": "Prüfmerkmal · Ergebniserfassung · Verwendungsentscheid",
+    "modules": "QM",
+    "proof": "G2-05",
+    "status": "Getestet",
+    "story": "Erst nach Marias Freigabe darf aus gelieferter Ware verfügbarer Bestand werden."
+  },
+  {
+    "number": "07",
+    "title": "Bestand ist frei verwendbar",
+    "business": "Die geprüfte Ware steht für nachfolgende operative Prozesse zur Verfügung.",
+    "sap": "Der Bestand wird aus der Qualitätsprüfung in den frei verwendbaren Bestand überführt.",
+    "objects": "Bestandsart · Materialbestand · Werk LS10 · Charge",
+    "modules": "MM · QM",
+    "proof": "G2-06",
+    "status": "Getestet",
+    "story": "Gate 2 ist erreicht. Grumpy nickt. Bei ihm gilt das bereits als Begeisterung."
+  }
+]

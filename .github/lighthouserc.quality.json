@@ -1,0 +1,48 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./_serve",
+      "url": [
+        "http://localhost/sap-transformation-lab/",
+        "http://localhost/sap-transformation-lab/about/",
+        "http://localhost/sap-transformation-lab/inside-llsg/people/big-joe/",
+        "http://localhost/sap-transformation-lab/projects/llsg-foundation-p2p/",
+        "http://localhost/sap-transformation-lab/projects/llsg-foundation-p2p/gate-2/",
+        "http://localhost/sap-transformation-lab/evidence/",
+        "http://localhost/sap-transformation-lab/xray/gate-2/",
+        "http://localhost/sap-transformation-lab/search/",
+        "http://localhost/sap-transformation-lab/404.html"
+      ],
+      "numberOfRuns": 3
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "categories:performance": [
+          "error",
+          {
+            "minScore": 0.92
+          }
+        ],
+        "categories:accessibility": [
+          "error",
+          {
+            "minScore": 0.95
+          }
+        ],
+        "categories:best-practices": [
+          "error",
+          {
+            "minScore": 0.95
+          }
+        ],
+        "categories:seo": "off",
+        "is-crawlable": "off"
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./artifacts/lighthouse"
+    }
+  }
+}

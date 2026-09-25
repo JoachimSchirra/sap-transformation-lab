@@ -1,64 +1,49 @@
 ---
 layout: page
-title: Projekte
+title: Build & Roadmap
 permalink: /projects/
+eyebrow: Structured delivery
+lead: Aktiver SAP-Build, projektbezogene Gates und die längerfristige LLSG-Entwicklungsrichtung – sichtbar getrennt nach Reifegrad.
+status_source: project
+description: Aktiver SAP-Build, Projekt-Gates und längerfristige LLSG-Gesamtroadmap.
+nav_projects: true
 ---
 
-Unter **Projekte** werden klar abgegrenzte fachliche und technische Vorhaben innerhalb des SAP Transformation Lab dokumentiert.
+## LLSG Foundation und Purchase to Pay
 
-Jedes Projekt verbindet eine konkrete geschäftliche Zielsetzung mit den dazugehörigen Prozessentscheidungen, der SAP-Konzeption, der Umsetzung und dem späteren Nachweis des Ergebnisses.
+Das gegenwärtige Projekt schafft das organisatorische und fachliche Fundament der fiktiven Long Life Sciences GmbH und baut darauf einen integrierten Purchase-to-Pay-Prozess auf.
 
-## Aufbau der Projektdokumentation
+<div class="case-study-summary">
+<p class="section-kicker">Aktueller Stand</p>
+<h2>Gate 2 erfolgreich getestet</h2>
+<p class="lead-copy">Bestellung, 101-Wareneingang, Material- und FI-Beleg, Charge, Prüflos, Ergebniserfassung, positive Verwendungsentscheidung und Bestandsfreigabe wurden als integrierter MM/FI/QM-Ablauf getestet.</p>
+</div>
 
-Ein Projekt soll – soweit für das jeweilige Thema relevant – folgende Bestandteile enthalten:
+<p><a class="button button-dark compact-button" href="{{ '/projects/llsg-foundation-p2p/' | relative_url }}">Projekt, Roadmap und nächste Gates öffnen</a></p>
 
-- Ausgangslage und geschäftlicher Anlass
-- Ziel und Abgrenzung
-- fachliche Anforderungen
-- Architektur- und Designentscheidungen
-- Umsetzungsschritte
-- Abhängigkeiten und offene Punkte
-- Testfälle und Ergebnisse
-- ausgewählte Nachweise
-- gewonnene Erkenntnisse
+## LLSG-Gesamtroadmap
 
-Dabei wird jederzeit kenntlich gemacht, welche Inhalte geplant, beschlossen, implementiert oder getestet sind.
+Die Gesamtroadmap zeigt den Entwicklungsrahmen des Modellunternehmens. Nur **Foundation & Purchase to Pay** ist derzeit ein aktiver Build. Alle weiteren Felder bleiben ausdrücklich als nächste, spätere oder strategische Entwicklungsrichtung gekennzeichnet.
 
-## Aktuelles Projekt
+<div class="portfolio-roadmap">
+{% assign horizons = "current,next,later,future" | split: "," %}
+{% for horizon in horizons %}
+{% assign items = site.data.portfolio_roadmap | where: "horizon", horizon %}
+<section class="portfolio-lane portfolio-{{ horizon | escape }}">
+<h3>{{ items.first.horizonLabel | escape }}</h3>
+<div>
+{% for item in items %}
+{% if item.url %}<a href="{{ item.url | relative_url | escape }}" class="portfolio-card">{% else %}<article class="portfolio-card">{% endif %}
+<span>{{ item.status | escape }}</span><strong>{{ item.title | escape }}</strong><p>{{ item.summary | escape }}</p>
+{% if item.url %}</a>{% else %}</article>{% endif %}
+{% endfor %}
+</div>
+</section>
+{% endfor %}
+</div>
 
-### LLSG Foundation und Purchase-to-Pay
+## Weitere Vertiefung
 
-Das erste Projekt schafft die organisatorische und fachliche Grundlage für die Long Life Sciences Group (LLSG) in SAP S/4HANA.
-
-Darauf aufbauend entsteht schrittweise ein durchgängiger Purchase-to-Pay-Prozess:
-
-1. Lieferantenstammdaten
-2. Materialstammdaten
-3. Bestellung
-4. Wareneingang
-5. Qualitätsprüfung und Verwendungsentscheidung
-6. Rechnungsprüfung
-7. Zahlung und Finanzbuchhaltung
-
-Der erste abgegrenzte Meilenstein ist **Gate 1A – First Purchase Order**. Sein Ziel ist die erfolgreiche Anlage und Speicherung einer technisch und stammdatenseitig sauberen ersten LLSG-Bestellung.
-
-Dieser frühe Meilenstein ist bewusst enger gefasst als ein vollständig implementierter und getesteter Purchase-to-Pay-Prozess.
-
-**Aktueller Stand:** Die fachliche Zielsetzung und die grundlegende Organisationsstruktur sind beschlossen. Die technische Umsetzung des ersten End-to-End-Szenarios befindet sich im Aufbau.
-
-## Weitere Projektfelder
-
-Spätere Projekte können unter anderem folgende Themen behandeln:
-
-- Bestandsführung und Lager
-- Qualitätsmanagement
-- Order-to-Cash
-- Finanzwesen und Abschluss
-- Controlling und Ergebnisrechnung
-- Output Management
-- Available-to-Promise
-- Stammdaten-Governance
-- Integration und Prozessautomatisierung
-- Daten, Analytics und Business AI
-
-Diese Themen bilden einen Entwicklungsrahmen. Ihre Nennung bedeutet nicht, dass sie bereits begonnen, implementiert oder getestet wurden.
+- [Gate 2 im Detail]({{ '/projects/llsg-foundation-p2p/gate-2/' | relative_url }}) – Testziel, Ablauf, Ergebnis und Grenzen
+- [Test & Nachweise]({{ '/evidence/' | relative_url }}) – Testergebnisse und öffentlicher Status der vorgesehenen Nachweise
+- [Build Journal]({{ '/journal/' | relative_url }}) – datierte Entscheidungen, Korrekturen und Erkenntnisse

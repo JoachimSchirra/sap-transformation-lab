@@ -1,0 +1,26 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="SAP Transformation Lab – Startseite">
+      <span class="brand-mark" aria-hidden="true"><span></span></span>
+      <span class="brand-copy">
+        <strong>SAP Transformation Lab</strong>
+        <small>by Joachim Schirra</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+      <span class="sr-only">Navigation öffnen</span>
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="main-navigation" class="main-navigation" aria-label="Hauptnavigation">
+      <a {% if page.nav_journey or page.url == '/abap/' %}class="active" aria-current="page"{% endif %} href="{{ '/sap-journey/' | relative_url }}">Prozesse &amp; Lösungsdesign</a>
+      <a {% if page.nav_projects or page.nav_journal %}class="active" aria-current="page"{% endif %} href="{{ '/projects/' | relative_url }}">Build &amp; Roadmap</a>
+      <a {% if page.nav_evidence or page.url == '/evidence/' or page.url == '/evidence/standard/' or page.url == '/xray/gate-2/' %}class="active" aria-current="page"{% endif %} href="{{ '/evidence/' | relative_url }}">Test &amp; Nachweise</a>
+      <a {% if page.nav_llsg %}class="active" aria-current="page"{% endif %} href="{{ '/llsg/' | relative_url }}">Modellunternehmen</a>
+      <a {% if page.nav_inside %}class="active" aria-current="page"{% endif %} href="{{ '/inside-llsg/' | relative_url }}">Inside LLSG</a>
+      <a {% if page.url == '/about/' or page.url == '/joachim-schirra/' %}class="active" aria-current="page"{% endif %} href="{{ '/about/' | relative_url }}">Über das Lab</a>
+    </nav>
+    <a class="header-search" href="{{ '/search/' | relative_url }}" aria-label="Website durchsuchen"><span aria-hidden="true">⌕</span><span class="sr-only">Suche</span></a>
+  </div>
+</header>

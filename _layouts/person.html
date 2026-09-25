@@ -1,0 +1,18 @@
+---
+layout: page
+---
+<a class="back-link" href="{{ '/inside-llsg/people/' | relative_url }}">← Zurück zu People of LLSG</a>
+<div class="profile-lead">
+  <div class="profile-portrait">{% if page.image %}<img src="{{ page.image | relative_url | escape }}" alt="{{ page.image_alt | escape }}" width="640" height="800" loading="lazy">{% else %}<span>Porträt in Vorbereitung</span>{% endif %}</div>
+  <div class="profile-facts">
+    <p class="person-role">{{ page.role | escape }}</p>
+    <h2>{{ page.title | escape }}</h2>
+    <p>{{ page.summary | escape }}</p>
+    <dl>
+      {% if page.location %}<div><dt>Ort</dt><dd>{{ page.location | escape }}</dd></div>{% endif %}
+      <div><dt>Status</dt><dd>{% if page.fictional %}Fiktive Persona{% else %}Reales Profil{% endif %}</dd></div>
+    </dl>
+  </div>
+</div>
+{{ content }}
+{% if page.fictional %}<blockquote><p>{{ page.fiction_note | default: 'Diese Persona ist vollständig fiktiv.' | escape }}</p></blockquote>{% endif %}

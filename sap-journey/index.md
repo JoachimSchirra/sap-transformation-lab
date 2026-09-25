@@ -1,85 +1,42 @@
 ---
 layout: page
-title: SAP Journey
+title: Prozesse & Lösungsdesign
 permalink: /sap-journey/
+eyebrow: From strategy to system
+lead: Geschäftliche Anforderungen, End-to-End-Prozesse und begründete SAP-Architektur – getrennt von Umsetzungschronik und Testnachweisen.
+description: Fachliche Prozessentscheidungen und Lösungsarchitektur im SAP-S/4HANA-Greenfield-Build.
+nav_journey: true
 ---
 
-Die **SAP Journey** dokumentiert den Weg vom fachlichen Modellunternehmen zur nachvollziehbaren Umsetzung in SAP S/4HANA.
+Dieser Bereich beantwortet zwei Fragen: **Was soll geschäftlich funktionieren?** und **wie wird daraus eine konsistente SAP-Lösung?** Der aktuelle Umsetzungsstand steht unter Build & Roadmap; getestete Ergebnisse und öffentliche Nachweise stehen unter Test & Nachweise.
 
-Sie ist weder ein Einsteiger-Tutorial noch eine Sammlung beliebiger System-Screenshots. Im Mittelpunkt steht die Verbindung zwischen Geschäftsanforderung, fachlicher Entscheidung, Lösungsarchitektur, tatsächlicher Umsetzung und überprüfbarem Ergebnis.
+## Von der Anforderung zur belastbaren Entscheidung
 
-## Vom Geschäftsmodell zum System
+Jeder veröffentlichte Themenbereich folgt derselben Logik:
 
-Jeder veröffentlichte Themenbereich soll möglichst eine durchgängige Nachweiskette zeigen:
-
-1. geschäftlicher Auslöser oder fachliche Anforderung
+1. geschäftlicher Auslöser und fachliche Anforderung
 2. Prozess- und Organisationsentscheidung
 3. Architektur- oder Designentscheidung
 4. Umsetzung in SAP S/4HANA
-5. ausgewählter, bereinigter Nachweis
-6. Test- oder Prozessergebnis
-7. daraus gewonnene Erkenntnis
-
-Auf diese Weise wird nicht nur gezeigt, **was** im System eingestellt wurde, sondern auch, **warum** eine Entscheidung getroffen wurde und **wie** sie sich im Geschäftsprozess auswirkt.
+5. Übergabe an Build und Test
 
 ## Leitlinien
 
-Die Konzeption und Umsetzung orientieren sich an folgenden Grundsätzen:
-
-- Greenfield-Ansatz
-- Orientierung an SAP Activate
-- Fit-to-Standard
-- Standard vor Eigenentwicklung
+- Greenfield-Ansatz und Orientierung an SAP Activate
+- Fit-to-Standard und SAP-Standard vor Eigenentwicklung
 - fachliche Entscheidung vor technischer Konfiguration
-- nachvollziehbare Architektur- und Designentscheidungen
-- schrittweise Umsetzung in überprüfbaren Meilensteinen
+- End-to-End-Wirkung vor isolierter Einzeltransaktion
+- Implementierung, Test und öffentlicher Nachweis als getrennte Status
 
-## Projektstatus
+<div class="journey-links">
+  <a href="{{ '/sap-journey/business-process-design/' | relative_url }}"><span>Business View</span><strong>Business &amp; Process Design</strong><small>Auslöser, Scope und End-to-End-Prozess</small></a>
+  <a href="{{ '/sap-journey/system-map/' | relative_url }}"><span>Orientation</span><strong>Systemlandkarte</strong><small>Geschäft, Prozess, SAP-Kern und Organisation</small></a>
+  <a href="{{ '/sap-journey/system-architecture/' | relative_url }}"><span>Foundation</span><strong>System und Lösungsarchitektur</strong><small>Rahmenbedingungen und bewusste Designentscheidungen</small></a>
+  <a href="{{ '/abap/' | relative_url }}"><span>Technical Extension</span><strong>ABAP Lab</strong><small>Eigenentwicklungen nur aus konkretem fachlichem Bedarf</small></a>
+</div>
 
-Planung, Entscheidung und tatsächliche Umsetzung werden strikt voneinander getrennt. Dafür werden je nach Inhalt eindeutige Statusangaben verwendet:
+## Abgrenzung
 
-- **OFFEN** – noch nicht entschieden
-- **ARBEITSANNAHME** – vorläufige Grundlage für die weitere Arbeit
-- **BESCHLOSSEN** – fachlich oder technisch entschieden
-- **SPÄTER** – bewusst in eine spätere Ausbaustufe verschoben
-- **IMPLEMENTIERT** – im SAP-System umgesetzt
-- **GETESTET** – durch einen dokumentierten Test bestätigt
+Der verbindliche aktuelle Projektstand steht unter **Build & Roadmap**. Datierte Arbeitsschritte stehen im **Build Journal**. Testergebnisse und veröffentlichte Belege stehen unter **Test & Nachweise**.
 
-Eine beschlossene Zielsetzung wird nicht als implementiert dargestellt. Eine Implementierung gilt erst nach einem nachvollziehbaren Test als getestet.
-
-## Fachlicher Umfang
-
-Die erste geplante End-to-End-Linie ist der Purchase-to-Pay-Prozess von der Beschaffungsanforderung bis zur Zahlung. Dazu gehören schrittweise:
-
-- Lieferanten- und Materialstammdaten
-- Bestellung
-- Wareneingang und Bestandsführung
-- Qualitätsprüfung und Verwendungsentscheidung
-- Rechnungsprüfung
-- Zahlung und Finanzbuchhaltung
-
-Weitere Ausbaustufen umfassen unter anderem:
-
-- Lager und Bestandsführung
-- Qualitätsmanagement
-- Order-to-Cash
-- Finanzwesen und Abschluss
-- Controlling und Ergebnisrechnung
-- Integration und Prozessautomatisierung
-- Daten, Analytics und spätere KI-Szenarien
-
-Diese Aufzählung beschreibt den geplanten Entwicklungsrahmen und nicht den aktuellen Implementierungsstand.
-
-## Öffentliche Dokumentation
-
-Veröffentlicht werden nur ausgewählte und bereinigte Inhalte, die einen fachlichen oder technischen Erkenntniswert besitzen. Dazu können gehören:
-
-- Prozessdarstellungen
-- Architekturentscheidungen
-- ausgewählte Konfigurationsnachweise
-- bereinigte Screenshots
-- Testfälle und Ergebnisse
-- technische Beispiele und Quellcode
-- Erfahrungen und Schlussfolgerungen
-
-Nicht veröffentlicht werden vertrauliche Daten, Zugangsinformationen, Benutzernamen, Server- oder Systemkennungen, nicht bereinigte Screenshots oder technische Sicherungsdateien aus dem SAP-System.
+[Zum aktuellen Build →]({{ '/projects/' | relative_url }}) · [Zu Test & Nachweise →]({{ '/evidence/' | relative_url }})

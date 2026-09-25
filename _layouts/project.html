@@ -1,0 +1,11 @@
+---
+layout: page
+---
+
+{% if page.executive_summary %}<section class="case-study-summary"><p class="section-kicker">Executive Summary</p><h2>Worum es für Entscheider geht</h2><p class="lead-copy">{{ page.executive_summary | escape }}</p></section>{% endif %}
+
+{% if page.business_relevance %}<section><h2>Geschäftliche Relevanz</h2><p>{{ page.business_relevance | escape }}</p></section>{% endif %}
+
+{{ content }}
+
+{% if page.transformation_insight %}<section><h2>Erkenntnis für reale Transformationen</h2><p>{{ page.transformation_insight | escape }}</p></section>{% endif %}

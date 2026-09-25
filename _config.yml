@@ -1,5 +1,6 @@
 title: "SAP Transformation Lab"
-description: "Ein unabhängiges SAP-Transformationslabor mit der Long Life Sciences Group (LLSG) – The Model Company: von Geschäftsprozessen und Architektur bis zur Umsetzung in SAP S/4HANA."
+description: "Ein unabhängiges SAP-S/4HANA-Build- und Demonstrationsprojekt – vom Modellunternehmen über End-to-End-Prozesse bis zu Umsetzung, Test und Evidence."
+author: "Joachim Schirra"
 lang: "de-DE"
 timezone: "Europe/Berlin"
 url: "https://joachimschirra.github.io"
@@ -7,11 +8,87 @@ baseurl: "/sap-transformation-lab"
 theme: minima
 permalink: pretty
 
+# Prototype switches. External services remain disabled until deliberately
+# activated for the public production site.
+environment: prototype
+production_ready: false
+repository_public: false
+social_image: "/assets/images/social-preview.jpg"
+contact:
+  enabled: false
+  email: ""
+  linkedin: ""
+legal:
+  approved: false
+  imprint_complete: false
+  privacy_complete: false
+analytics:
+  enabled: false
+  provider: cloudflare
+  token: ""
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      search_exclude: false
+      published: true
+  - scope:
+      path: "inside-llsg/people"
+    values:
+      layout: person
+      nav_inside: true
+      content_type: person
+      fictional: true
+      search_exclude: false
+  - scope:
+      path: "inside-llsg/business-episodes/items"
+    values:
+      layout: page
+      eyebrow: "Inside LLSG · Business Episode"
+      nav_inside: true
+      content_type: business_episode
+      fictional: true
+  - scope:
+      path: "inside-llsg/off-duty/items"
+    values:
+      layout: page
+      eyebrow: "Inside LLSG · Off Duty"
+      nav_inside: true
+      content_type: off_duty
+      fictional: true
+  - scope:
+      path: "journal/entries"
+    values:
+      layout: page
+      eyebrow: "Build Journal"
+      nav_journal: true
+      content_type: journal
+  - scope:
+      path: "projects/llsg-foundation-p2p"
+    values:
+      nav_projects: true
+      content_type: project
+
+exclude:
+  - README.md
+  - DESIGN-STUDY.md
+  - NEXT-PROTOTYPE-BACKLOG.md
+  - IMPLEMENTATION-STATUS.md
+  - docs
+  - tools
+  - package.json
+  - package-lock.json
+  - lighthouserc.json
+  - node_modules
+  - _media-source
+
+plugins:
+  - jekyll-sitemap
+
 header_pages:
+  - projects/index.md
+  - sap-journey/index.md
   - llsg/index.md
   - inside-llsg/index.md
-  - sap-journey/index.md
-  - projects/index.md
-  - abap/index.md
-  - journal/index.md
   - about.md
