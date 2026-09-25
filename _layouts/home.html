@@ -1,0 +1,126 @@
+---
+layout: default
+---
+
+<section id="top" class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">SAP S/4HANA · Greenfield · Independent Build</p>
+      <h1>Ein Unternehmen entsteht. <span>In SAP – und vor aller Augen.</span></h1>
+      <p class="hero-lead">Das SAP Transformation Lab dokumentiert, wie aus einem konsistenten Geschäftsmodell, klaren Prozessentscheidungen und Lösungsarchitektur eine getestete SAP-S/4HANA-Umsetzung entsteht.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ '/projects/llsg-foundation-p2p/' | relative_url }}">Aktuellen Build ansehen <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="{{ '/sap-journey/system-map/' | relative_url }}">Systemlandkarte öffnen</a>
+      </div>
+      <dl class="hero-facts" role="group" aria-label="Projektüberblick">
+        <div><dt>System</dt><dd>S/4HANA 2023</dd></div>
+        <div><dt>Ansatz</dt><dd>Greenfield</dd></div>
+        <div><dt>Status</dt><dd>Gate 2 getestet</dd></div>
+      </dl>
+    </div>
+
+    <figure class="logo-stage">
+      <picture>
+        <source srcset="{{ '/assets/images/llsg-logo.webp' | relative_url }}" type="image/webp">
+        <img src="{{ '/assets/images/llsg-logo.png' | relative_url }}" width="1152" height="768" fetchpriority="high" alt="Long Life Sciences – Adding life to years.">
+      </picture>
+      <figcaption>Das vollständig fiktive Modellunternehmen des SAP Transformation Lab</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="credibility-strip" aria-label="Fachlicher Rahmen">
+  <div class="section-inner credibility-grid">
+    <span>Business &amp; IT</span><span>End-to-End-Prozesse</span><span>Life Sciences</span><span>Logistik · Qualität · Finance</span><span>Greenfield Build</span><span>Test &amp; Evidence</span>
+  </div>
+</section>
+
+<section class="section capability-section" aria-labelledby="capability-title">
+  <div class="section-inner">
+    <p class="section-kicker">Was dieses Lab demonstriert</p>
+    <h2 id="capability-title">Vom Geschäftsproblem bis zum getesteten Ergebnis.</h2>
+    <div class="capability-grid">
+      <a href="{{ '/sap-journey/business-process-design/' | relative_url }}"><span>01</span><h3>Business &amp; Process Design</h3><p>Anforderungen und End-to-End-Prozesse in ein belastbares Zielbild übersetzen.</p><b aria-hidden="true">↗</b></a>
+      <a href="{{ '/sap-journey/system-architecture/' | relative_url }}"><span>02</span><h3>Solution Architecture</h3><p>Organisation, Module, Stammdaten und Integration zu einem Gesamtbild verbinden.</p><b aria-hidden="true">↗</b></a>
+      <a href="{{ '/projects/' | relative_url }}"><span>03</span><h3>Build &amp; Delivery</h3><p>Entscheidungen standardorientiert in Customizing und Stammdaten umsetzen.</p><b aria-hidden="true">↗</b></a>
+      <a href="{{ '/evidence/' | relative_url }}"><span>04</span><h3>Test &amp; Evidence</h3><p>Testergebnis und öffentlichen Belegstatus konsequent voneinander trennen.</p><b aria-hidden="true">↗</b></a>
+    </div>
+  </div>
+</section>
+
+{% assign project = site.data.project_status %}
+{% assign current_gate = site.data.gates | where: "id", project.currentGateId | first %}
+{% assign next_gate = site.data.gates | where: "id", project.nextGateId | first %}
+<section class="section journey-section current-build-section" aria-labelledby="current-build-title">
+  <div class="section-inner">
+    <div class="section-heading-row">
+      <div><p class="section-kicker light">Aktueller Build</p><h2 id="current-build-title">Foundation &amp; Purchase to Pay</h2></div>
+      <span class="status-badge"><span></span>{{ current_gate.label | escape }} getestet · {{ next_gate.label | escape }} als Nächstes</span>
+    </div>
+    <div class="build-spotlight">
+      <div>
+        <p class="gate-label">Geschäftliches Risiko</p>
+        <h3>Ein Wareneingang ist erst belastbar, wenn Logistik, Bewertung, Charge und Qualität konsistent zusammenspielen.</h3>
+        <p>Gate 2 führt den 101-Wareneingang über Material- und FI-Beleg, Chargenübernahme und Prüflos bis zur positiven Verwendungsentscheidung und Bestandsfreigabe.</p>
+      </div>
+      <dl class="build-facts">
+        <div><dt>Getestetes Ergebnis</dt><dd>{{ project.lastResult | escape }}</dd></div>
+        <div><dt>Nächster Schritt</dt><dd>{{ project.nextStep | escape }}</dd></div>
+        <div><dt>Öffentlicher Belegstatus</dt><dd>{{ project.evidenceStatus | escape }}</dd></div>
+      </dl>
+    </div>
+    <div class="build-actions">
+      <a class="button button-primary" href="{{ '/projects/llsg-foundation-p2p/' | relative_url }}">Projekt und Roadmap öffnen <span aria-hidden="true">→</span></a>
+      <a class="text-link light-link" href="{{ '/projects/llsg-foundation-p2p/gate-2/' | relative_url }}">Gate 2 im Detail prüfen <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section model-teaser" aria-labelledby="model-title">
+  <div class="section-inner two-column">
+    <div><p class="section-kicker">Das Modellunternehmen</p><h2 id="model-title">Long Life Sciences GmbH</h2></div>
+    <div class="intro-copy">
+      <p class="large-copy">LLSG liefert eine zusammenhängende fiktive Unternehmenswelt, damit SAP-Entscheidungen nicht als lose Demos, sondern in einem konsistenten geschäftlichen Kontext sichtbar werden.</p>
+      <ul class="model-areas">
+        <li><strong>Specialty Pharmaceuticals</strong><span>aktiver Modellbereich</span></li>
+        <li><strong>Medical Devices &amp; Mobility</strong><span>aufzubauender Kernbereich</span></li>
+        <li><strong>Digital Health &amp; Connected Care</strong><span>geplantes Wachstumsfeld</span></li>
+      </ul>
+      <a class="text-link dark-link" href="{{ '/llsg/' | relative_url }}">Modellunternehmen ansehen <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section proof-hub" aria-labelledby="proof-title">
+  <div class="section-inner">
+    <div class="section-heading-row dark-row">
+      <div><p class="section-kicker">Test &amp; Nachweise</p><h2 id="proof-title">Ein Ergebnis. Drei Tiefen.</h2></div>
+      <p>Vom integrierten Test über den öffentlichen Belegstatus bis zur interaktiven Prozesssicht.</p>
+    </div>
+    <div class="evidence-strip">
+      <a class="evidence-tile" href="{{ '/projects/llsg-foundation-p2p/gate-2/' | relative_url }}"><span class="evidence-code">Gate 2 · Test</span><strong>Goods Receipt &amp; Quality</strong><small>Testziel, Ablauf, Ergebnis und Grenzen</small><span class="evidence-arrow" aria-hidden="true">→</span></a>
+      <a class="evidence-tile" href="{{ '/evidence/' | relative_url }}"><span class="evidence-code">Nachweisregister</span><strong>Belegstatus transparent</strong><small>Getestet und öffentlich belegt bleiben getrennt</small><span class="evidence-arrow" aria-hidden="true">→</span></a>
+      <a class="evidence-tile evidence-tile-dark" href="{{ '/xray/gate-2/' | relative_url }}"><span class="evidence-code">LLSG X-Ray</span><strong>Business · SAP · Proof</strong><small>Der Vorgang in drei synchronen Perspektiven</small><span class="evidence-arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section explore-section" aria-labelledby="explore-title">
+  <div class="section-inner">
+    <p class="section-kicker">Gezielt vertiefen</p>
+    <div class="section-heading-row dark-row"><h2 id="explore-title">Drei klar getrennte Perspektiven</h2><p>Keine zweite Projektzusammenfassung, sondern jeweils eine eigene Aufgabe.</p></div>
+    <div class="card-grid three-cards">
+      <a class="explore-card featured" href="{{ '/sap-journey/' | relative_url }}"><span class="explore-index">01</span><h3>Prozesse &amp; Lösungsdesign</h3><p>Geschäftliche Anforderungen, Prozessdesign und Architekturentscheidungen.</p><span class="card-arrow" aria-hidden="true">↗</span></a>
+      <a class="explore-card" href="{{ '/journal/' | relative_url }}"><span class="explore-index">02</span><h3>Build Journal</h3><p>Datierte Entscheidungen, Korrekturen und Erkenntnisse aus dem tatsächlichen Aufbau.</p><span class="card-arrow" aria-hidden="true">↗</span></a>
+      <a class="explore-card" href="{{ '/inside-llsg/' | relative_url }}"><span class="explore-index">03</span><h3>Inside LLSG</h3><p>Figuren und Geschichten als optionaler menschlicher Kontext des Modellunternehmens.</p><span class="card-arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="statement-section">
+  <div class="section-inner statement-inner">
+    <div><p class="section-kicker">Hinter dem Lab</p><p class="statement-quote">Konzipiert, realisiert und kontinuierlich weiterentwickelt von Joachim Schirra.</p><p>Die fachliche Arbeit und das Modellunternehmen stehen im Vordergrund; die Person dahinter bleibt als verantwortlicher Urheber eindeutig erkennbar.</p></div>
+    <a class="button button-dark" href="{{ '/about/' | relative_url }}">Über das Lab</a>
+  </div>
+</section>

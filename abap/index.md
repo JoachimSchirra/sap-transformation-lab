@@ -2,79 +2,49 @@
 layout: page
 title: ABAP Lab
 permalink: /abap/
+eyebrow: Technical workshop
+lead: Eigenentwicklungen und Erweiterungen beginnen mit einer konkreten Anforderung – und enden mit nachvollziehbarem Code und Tests.
+status: In Vorbereitung
+description: Technische Werkstatt für ABAP-Entwicklungen im SAP Transformation Lab.
 ---
 
-Das **ABAP Lab** ist die technische Werkstatt des SAP Transformation Lab. Hier werden Eigenentwicklungen und Erweiterungen dokumentiert, die aus konkreten Anforderungen der Long Life Sciences Group (LLSG) entstehen.
+Das **ABAP Lab** ist die technische Werkstatt des SAP Transformation Lab. Hier werden Eigenentwicklungen und Erweiterungen dokumentiert, die aus konkreten Anforderungen der fiktiven Long Life Sciences GmbH entstehen.
 
 Im Mittelpunkt steht nicht das isolierte Vorführen einzelner Sprachbefehle. Jede veröffentlichte Lösung soll einen nachvollziehbaren fachlichen Zweck innerhalb des Modellunternehmens erfüllen.
 
 ## Vom Bedarf zur Entwicklung
 
-Eine ABAP-Umsetzung beginnt mit einer fachlichen oder technischen Anforderung. Die Dokumentation soll deshalb möglichst folgende Fragen beantworten:
+Eine ABAP-Umsetzung beginnt mit einer fachlichen oder technischen Anforderung. Die Dokumentation beantwortet nach Möglichkeit:
 
 1. Welches Problem soll gelöst werden?
 2. Warum reicht der SAP-Standard nicht aus?
 3. Welche Lösungsalternativen wurden betrachtet?
 4. Warum wurde die gewählte Umsetzung bevorzugt?
-5. Wie wurde die Lösung implementiert?
-6. Wie wurde sie getestet?
-7. Welche Grenzen oder offenen Punkte bestehen?
+5. Wie wurde sie implementiert und getestet?
+6. Welche Grenzen oder offenen Punkte bestehen?
 
 ## Entwicklungsgrundsätze
-
-Für Eigenentwicklungen gelten insbesondere folgende Leitlinien:
 
 - SAP-Standard vor Eigenentwicklung
 - Erweiterung statt Modifikation
 - Orientierung am Clean-Core-Prinzip
 - verständlicher und wartbarer Quellcode
-- objektorientierte Gestaltung, wo sie fachlich sinnvoll ist
-- möglichst geringe Abhängigkeit von technischen Einzelheiten
+- objektorientierte Gestaltung, wo fachlich sinnvoll
 - nachvollziehbare Fehlerbehandlung
 - Berücksichtigung von Berechtigungen und Datenschutz
 - dokumentierte Tests
 
 ## Mögliche Themenfelder
 
-Das ABAP Lab kann im weiteren Projektverlauf unter anderem folgende Inhalte aufnehmen:
-
-- klassische ABAP-Reports
-- objektorientiertes ABAP
-- Datenzugriffe und interne Tabellen
-- Schnittstellen und Datenverarbeitung
-- Erweiterungspunkte und BAdIs
-- Core Data Services
-- OData und APIs
-- RESTful Application Programming Model
-- ABAP Cloud
-- automatisierte Tests mit ABAP Unit
-
-Diese Aufzählung beschreibt den möglichen Entwicklungsrahmen. Sie bedeutet nicht, dass zu allen Themen bereits Implementierungen vorhanden sind.
+Das ABAP Lab kann klassische Reports, objektorientiertes ABAP, Schnittstellen, BAdIs, Core Data Services, OData, APIs, RAP, ABAP Cloud und ABAP Unit aufnehmen. Diese Aufzählung beschreibt den möglichen Entwicklungsrahmen und keinen bereits erreichten Stand.
 
 ## Aufbau eines veröffentlichten Beispiels
 
-Jedes veröffentlichte Entwicklungsbeispiel soll nach Möglichkeit enthalten:
-
-- fachliche Anforderung
-- technisches Lösungskonzept
-- Voraussetzungen und Abhängigkeiten
-- Quellcode
-- Erklärung wesentlicher Entwurfsentscheidungen
-- Testfall und Ergebnis
-- bekannte Einschränkungen
-- Bezug zum entsprechenden LLSG-Prozess
+Jedes Beispiel soll fachliche Anforderung, Lösungskonzept, Voraussetzungen, Quellcode, Entwurfsentscheidungen, Testfall, Ergebnis, Einschränkungen und den Bezug zum LLSG-Prozess enthalten.
 
 ## Abgrenzung und Veröffentlichung
 
-Veröffentlicht wird ausschließlich Quellcode, der eigens für das SAP Transformation Lab entwickelt und vor der Veröffentlichung geprüft wurde.
-
-Nicht veröffentlicht werden:
-
-- Quellcode aktueller oder früherer Arbeitgeber oder Kunden
-- kopierte unternehmensspezifische Entwicklungen
-- Zugangsdaten oder technische Verbindungsinformationen
-- reale Stamm- oder Bewegungsdaten
-- interne Systemkennungen oder vertrauliche Namensräume
+Veröffentlicht wird ausschließlich Quellcode, der eigens für das SAP Transformation Lab entwickelt und geprüft wurde. Ausgeschlossen sind Quellcode aktueller oder früherer Arbeitgeber oder Kunden, reale Daten, Zugangsdaten, technische Verbindungsinformationen und vertrauliche Namensräume.
 
 ## Aktueller Stand
 

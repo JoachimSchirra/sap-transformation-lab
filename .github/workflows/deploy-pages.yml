@@ -1,0 +1,114 @@
+name: Deploy approved production site
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-release-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Checkout the selected main revision
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Refuse deployment from a non-main revision
+        run: test "${GITHUB_REF}" = "refs/heads/main" && test "${GITHUB_SHA}" = "$(git rev-parse HEAD)"
+
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 22.20.0
+          cache: npm
+
+      - name: Install locked Node dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Reject known dependency vulnerabilities
+        run: npm audit --audit-level=moderate
+
+      - name: Enforce production, legal and security approvals
+        run: npm run validate:production
+
+      - name: Run security regression tests
+        run: npm run test:security
+
+      - name: Build and validate portable previews
+        run: npm run preview && npm run preview:single && npm run validate:preview
+
+      - name: Merge the approved production overlay
+        run: node tools/prepare-production-config.mjs
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+
+      - name: Build with the immutable GitHub Pages toolchain
+        uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697 # v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Prepare project-path test server
+        run: npm run prepare:serve
+
+      - name: Validate generated HTML
+        run: npx html-validate './_site/**/*.html'
+
+      - name: Check generated internal links
+        run: npm run check:links
+
+      - name: Run automated accessibility tests
+        run: |
+          npm run serve > /tmp/llsg-http-server.log 2>&1 &
+          npx wait-on --timeout 30000 http://127.0.0.1:8080/sap-transformation-lab/
+          npm run a11y
+
+      - name: Run Lighthouse release gates
+        uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: false
+
+      - name: Record released file manifest
+        run: |
+          mkdir -p artifacts
+          find _site -type f -print0 | sort -z | xargs -0 sha256sum > artifacts/release-files.sha256
+          git show -s --format='%H%n%cI%n%an <%ae>' HEAD > artifacts/release-commit.txt
+
+      - name: Upload private release record
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: website-release-record
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    needs: build-and-release-check
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy the approved artifact
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

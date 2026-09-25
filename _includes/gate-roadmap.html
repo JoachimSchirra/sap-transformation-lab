@@ -1,0 +1,38 @@
+{% assign active_gate = site.data.gates | where: "selected", true | first %}
+<div class="gate-panel" data-gate-roadmap>
+<div id="gate-detail" class="gate-copy" role="tabpanel" aria-labelledby="gate-tab-{{ active_gate.id }}" aria-live="polite" aria-atomic="true">
+<div class="gate-meta">
+<p class="gate-label" data-gate-detail-status>{{ active_gate.detailStatus | escape }}</p>
+<span class="gate-counter" data-gate-counter>02 / {{ site.data.gates.size | prepend: '0' | slice: -2, 2 }}</span>
+</div>
+<h3 data-gate-label>{{ active_gate.label | escape }}</h3>
+<p class="gate-title" data-gate-title>{{ active_gate.title | escape }}</p>
+<p data-gate-summary>{{ active_gate.summary | escape }}</p>
+<ul class="gate-evidence" data-gate-evidence aria-label="Ausgewählte Ergebnisse">
+{% for evidence_id in active_gate.evidenceIds %}{% assign item = site.data.evidence | where: "id", evidence_id | first %}<li><span aria-hidden="true">✓</span>{{ item.claim | escape }}</li>{% endfor %}
+</ul>
+<a class="text-link" data-gate-link href="{{ active_gate.url | relative_url | escape }}">{{ active_gate.linkLabel | escape }} <span aria-hidden="true">→</span></a>
+</div>
+<div class="gate-roadmap-shell">
+<div class="gate-roadmap-heading">
+<div><p class="gate-label">P2P Gate-Roadmap</p><p>Innerhalb dieses Projekts horizontal navigieren</p></div>
+<div class="gate-roadmap-controls" role="group" aria-label="Gate-Auswahl">
+<button type="button" data-gate-previous aria-label="Vorheriges Gate"><span aria-hidden="true">←</span></button>
+<button type="button" data-gate-next aria-label="Nächstes Gate"><span aria-hidden="true">→</span></button>
+</div>
+</div>
+<div class="gate-roadmap-track" data-gate-track role="tablist" aria-label="Purchase-to-Pay-Projekt-Gates">
+{% for gate in site.data.gates %}
+<button id="gate-tab-{{ gate.id | escape }}" type="button" class="gate-roadmap-card phase-{{ gate.phase | escape }}{% if gate.selected %} is-selected{% endif %}" data-gate-index="{{ forloop.index0 }}" role="tab" aria-controls="gate-detail" aria-selected="{% if gate.selected %}true{% else %}false{% endif %}" tabindex="{% if gate.selected %}0{% else %}-1{% endif %}" disabled>
+<span class="gate-roadmap-node" aria-hidden="true">{% if gate.phase == 'done' %}✓{% else %}{{ forloop.index }}{% endif %}</span>
+<span class="gate-roadmap-label">{{ gate.label | escape }}</span>
+<strong>{{ gate.title | escape }}</strong>
+<small>{{ gate.status | escape }}</small>
+</button>
+{% endfor %}
+</div>
+<p class="gate-roadmap-hint"><span aria-hidden="true">↔</span> Horizontal wischen oder die Pfeiltasten verwenden</p>
+</div>
+<div hidden data-gate-data="{{ site.data.gates | jsonify | escape }}"></div>
+<div hidden data-gate-evidence-data="{{ site.data.evidence | jsonify | escape }}"></div>
+</div>

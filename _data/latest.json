@@ -1,0 +1,20 @@
+[
+  {
+    "date": "2026-09-21",
+    "title": "Gate 2 dokumentiert",
+    "summary": "Der getestete MM/FI/QM-Ablauf erhält Projektcockpit und eine vorbereitete Nachweiskette.",
+    "url": "/projects/llsg-foundation-p2p/gate-2/"
+  },
+  {
+    "date": "2026-09-21",
+    "title": "Nachweisstandard",
+    "summary": "Getestet und öffentlich veröffentlicht werden eindeutig getrennt.",
+    "url": "/evidence/standard/"
+  },
+  {
+    "date": "2026-09-21",
+    "title": "Systemlandkarte",
+    "summary": "Geschäft, Prozess, SAP-Kern und Organisation auf einen Blick.",
+    "url": "/sap-journey/system-map/"
+  }
+]

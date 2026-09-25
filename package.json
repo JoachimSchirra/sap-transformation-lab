@@ -1,0 +1,33 @@
+{
+  "name": "sap-transformation-lab",
+  "version": "8.5.1",
+  "private": true,
+  "scripts": {
+    "validate": "node tools/validate-content.mjs",
+    "validate:production": "node tools/validate-content.mjs --production",
+    "test:security": "node tools/security-regression.mjs",
+    "media": "node tools/optimize-images.mjs",
+    "preview": "node tools/build-preview.mjs",
+    "preview:single": "node tools/build-single-file.mjs",
+    "prepare:serve": "node tools/prepare-serve-tree.mjs",
+    "validate:html": "html-validate '_preview/**/*.html'",
+    "validate:preview": "npm run validate:html && node tools/validate-single-file.mjs",
+    "check:links": "node tools/check-links.mjs",
+    "serve": "http-server _serve -a 127.0.0.1 -p 8080 -c-1",
+    "a11y": "axe http://127.0.0.1:8080/sap-transformation-lab/ http://127.0.0.1:8080/sap-transformation-lab/projects/llsg-foundation-p2p/ http://127.0.0.1:8080/sap-transformation-lab/projects/llsg-foundation-p2p/gate-2/ http://127.0.0.1:8080/sap-transformation-lab/evidence/ http://127.0.0.1:8080/sap-transformation-lab/xray/gate-2/ http://127.0.0.1:8080/sap-transformation-lab/search/ --exit"
+  },
+  "engines": {
+    "node": "22.20.0",
+    "npm": "10.9.3"
+  },
+  "devDependencies": {
+    "@axe-core/cli": "4.13.0",
+    "html-validate": "11.16.0",
+    "http-server": "14.1.1",
+    "liquidjs": "10.29.0",
+    "marked": "18.0.13",
+    "sharp": "0.35.4",
+    "wait-on": "9.1.0",
+    "yaml": "2.9.1"
+  }
+}

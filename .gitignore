@@ -1,0 +1,11 @@
+node_modules/
+_site/
+_serve/
+_preview/
+_artifacts/
+artifacts/
+_media-source/*
+!_media-source/.gitkeep
+.jekyll-cache/
+.sass-cache/
+.DS_Store

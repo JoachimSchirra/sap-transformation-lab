@@ -1,0 +1,3 @@
+{% if site.analytics.enabled == true and site.environment == 'production' and site.analytics.provider == 'cloudflare' and site.analytics.token != '' %}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"{{ site.analytics.token | escape }}"}'></script>
+{% endif %}

@@ -1,0 +1,18 @@
+{
+  "projectId": "llsg-foundation-p2p",
+  "projectName": "LLSG Foundation and Purchase to Pay",
+  "system": "SAP S/4HANA 2023",
+  "organisation": "LS01 · LS10 Duisburg",
+  "modules": "MM · FI · QM",
+  "productProcess": "CHRONUNDO · Purchase to Pay",
+  "deliveryStatus": "Getestet",
+  "deliveryStatusKey": "tested",
+  "evidenceStatus": "Vorbereitet",
+  "evidenceStatusKey": "prepared",
+  "currentGateId": "gate-2",
+  "lastReachedGateId": "gate-2",
+  "nextGateId": "gate-3",
+  "lastResult": "Gate 2 im System getestet; öffentliche Nachweise in Vorbereitung",
+  "nextStep": "Gate 3 · Negative Quality Case",
+  "updated": "2026-09-21"
+}

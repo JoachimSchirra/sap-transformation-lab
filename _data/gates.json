@@ -1,0 +1,79 @@
+[
+  {
+    "id": "gate-1a",
+    "label": "Gate 1A",
+    "title": "First Purchase Order",
+    "phase": "done",
+    "status": "Getestet",
+    "roadmapStatus": "Getestet · 15.09.2026 · Nachweis vorbereitet",
+    "detailStatus": "Erreichtes Gate",
+    "summary": "Die erste technisch und stammdatenseitig saubere LLSG-Bestellung wurde erfolgreich angelegt und getestet.",
+    "evidenceIds": ["G1A-01", "G1A-02", "G1A-03"],
+    "testedAt": "2026-09-15",
+    "url": "/projects/llsg-foundation-p2p/gate-1a/",
+    "linkLabel": "Gate-1A-Nachweise ansehen"
+  },
+  {
+    "id": "gate-2",
+    "label": "Gate 2",
+    "title": "Goods Receipt & Quality",
+    "phase": "done",
+    "status": "Zuletzt erreicht · getestet",
+    "roadmapStatus": "Getestet · 19.09.2026 · Nachweis vorbereitet",
+    "detailStatus": "Letztes erreichtes Gate",
+    "summary": "Der integrierte Wareneingang wurde erfolgreich getestet: Material- und FI-Beleg, Prüflos, Qualitätsprüfung und Verwendungsentscheidung bilden einen durchgängigen MM/FI/QM-Nachweis.",
+    "evidenceIds": ["G2-01", "G2-02", "G2-03", "G2-04", "G2-05", "G2-06"],
+    "testedAt": "2026-09-19",
+    "url": "/projects/llsg-foundation-p2p/gate-2/",
+    "linkLabel": "Gate-2-Nachweise ansehen",
+    "selected": true
+  },
+  {
+    "id": "gate-3",
+    "label": "Gate 3",
+    "title": "Negative Quality Case",
+    "phase": "next",
+    "status": "Als Nächstes",
+    "roadmapStatus": "Als Nächstes",
+    "detailStatus": "Als Nächstes",
+    "summary": "Der nächste Test zeigt, wie LLSG mit einer nicht akzeptablen Qualitätsprüfung, gesperrtem Bestand und der kontrollierten Folgeentscheidung umgeht.",
+    "plannedResults": [
+      "Negatives Prüfergebnis",
+      "Abweichungsprozess nachweisen"
+    ],
+    "url": "/projects/llsg-foundation-p2p/",
+    "linkLabel": "Projekt-Roadmap öffnen"
+  },
+  {
+    "id": "gate-4",
+    "label": "Gate 4",
+    "title": "Invoice Verification",
+    "phase": "planned",
+    "status": "Geplant",
+    "roadmapStatus": "Geplant",
+    "detailStatus": "Geplantes Gate",
+    "summary": "Die Lieferantenrechnung wird mit Bestellung und Wareneingang abgeglichen und buchhalterisch nachvollziehbar verarbeitet.",
+    "plannedResults": [
+      "Drei-Wege-Abgleich",
+      "FI-Verbindlichkeit erzeugen"
+    ],
+    "url": "/projects/llsg-foundation-p2p/",
+    "linkLabel": "Projekt-Roadmap öffnen"
+  },
+  {
+    "id": "gate-5",
+    "label": "Gate 5",
+    "title": "Payment & Clearing",
+    "phase": "planned",
+    "status": "Geplant",
+    "roadmapStatus": "Geplant",
+    "detailStatus": "Geplantes Gate",
+    "summary": "Der Purchase-to-Pay-Prozess wird durch Zahlung, Bankbuchung und Ausgleich der Lieferantenposition vollständig geschlossen.",
+    "plannedResults": [
+      "Zahlung ausführen",
+      "Offene Posten ausgleichen"
+    ],
+    "url": "/projects/llsg-foundation-p2p/",
+    "linkLabel": "Projekt-Roadmap öffnen"
+  }
+]

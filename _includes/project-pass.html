@@ -1,0 +1,22 @@
+{% assign project = site.data.project_status %}
+{% assign current_gate = site.data.gates | where: "id", project.currentGateId | first %}
+<section class="project-pass" aria-labelledby="project-pass-title">
+  <div class="project-pass-heading">
+    <p class="section-kicker">Projektcockpit</p>
+    <h2 id="project-pass-title">{{ project.projectName | escape }}</h2>
+    <div class="status-pair" role="group" aria-label="Projektstatus">
+      <span class="status-chip status-{{ project.deliveryStatusKey | escape }}">Umsetzung · {{ project.deliveryStatus | escape }}</span>
+      <span class="status-chip evidence-{{ project.evidenceStatusKey | escape }}">Öffentlicher Nachweis · {{ project.evidenceStatus | escape }}</span>
+    </div>
+  </div>
+  <dl class="project-pass-grid">
+    <div><dt>Aktuelles Gate</dt><dd>{{ current_gate.label | escape }} · {{ current_gate.title | escape }}</dd></div>
+    <div><dt>System</dt><dd>{{ project.system | escape }}</dd></div>
+    <div><dt>Organisation</dt><dd>{{ project.organisation | escape }}</dd></div>
+    <div><dt>Module</dt><dd>{{ project.modules | escape }}</dd></div>
+    <div><dt>Produkt / Prozess</dt><dd>{{ project.productProcess | escape }}</dd></div>
+    <div><dt>Letztes Ergebnis</dt><dd>{{ project.lastResult | escape }}</dd></div>
+    <div><dt>Nächster Schritt</dt><dd>{{ project.nextStep | escape }}</dd></div>
+    <div><dt>Aktualisiert</dt><dd><time datetime="{{ project.updated | escape }}">{{ project.updated | date: '%d.%m.%Y' }}</time></dd></div>
+  </dl>
+</section>

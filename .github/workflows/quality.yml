@@ -1,0 +1,82 @@
+name: Website quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: read
+
+jobs:
+  validate-build-and-test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 22.20.0
+          cache: npm
+
+      - name: Install locked Node dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Reject known dependency vulnerabilities
+        run: npm audit --audit-level=moderate
+
+      - name: Validate content, routes and active markup
+        run: npm run validate
+
+      - name: Run security regression tests
+        run: npm run test:security
+
+      - name: Build and validate portable previews
+        run: npm run preview && npm run preview:single && npm run validate:preview
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+
+      - name: Build with the immutable GitHub Pages toolchain
+        uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697 # v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Prepare project-path test server
+        run: npm run prepare:serve
+
+      - name: Validate generated HTML
+        run: npx html-validate './_site/**/*.html'
+
+      - name: Check generated internal links
+        run: npm run check:links
+
+      - name: Run automated accessibility tests
+        run: |
+          npm run serve > /tmp/llsg-http-server.log 2>&1 &
+          npx wait-on --timeout 30000 http://127.0.0.1:8080/sap-transformation-lab/
+          npm run a11y
+
+      - name: Run Lighthouse quality gates
+        uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: false
+
+      - name: Upload private quality reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: website-quality-reports
+          path: artifacts/
+          if-no-files-found: ignore
+          retention-days: 14

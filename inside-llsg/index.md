@@ -2,46 +2,42 @@
 layout: page
 title: Inside LLSG
 permalink: /inside-llsg/
+eyebrow: Business has characters
+lead: Die erzählerische Seite des Modellunternehmens – zwischen Veränderung, Reibung, trockenem Humor und echten fachlichen Fragen.
+status: Fictional Stories
+description: Fiktive Business Episodes und Off-Duty-Geschichten aus der Welt von LLSG.
+nav_inside: true
 ---
 
-**Inside LLSG** ist die erzählerische Seite des SAP Transformation Lab. Hier geht es um das operative Leben innerhalb der Long Life Sciences Group (LLSG), um Entscheidungen, Konflikte und Gespräche – gelegentlich aber auch um das ganz private Leben ihrer Protagonisten.
+**Inside LLSG** ist die erzählerische Seite des SAP Transformation Lab. Hier geht es um das operative Leben innerhalb der fiktiven Long Life Sciences GmbH: um Entscheidungen, Konflikte und Gespräche – gelegentlich aber auch um das private Leben ihrer Protagonisten.
 
-Grumpy, Big Joe, die beide zusammen die Hauptprotagonisten in der IT-Abteilung sind, die Geschäftsführung und ihre Kolleginnen und Kollegen machen aus dem abstrakten Modellunternehmen eine lebendige Unternehmenswelt. Was dort geschieht, kann fachliche Fragen für das SAP-Modell auslösen. Es darf aber ebenso einfach unterhaltsam sein. Indem ich die Figuren ganz bewußt überzeichne und in ihrem äußerlichen Aussehen einen tierichen Bezug herstelle, versuche ich dem ganzen Unterfangen eine unterhaltsame Note zu geben. 
+Grumpy und Big Joe prägen als Hauptfiguren die IT-Seite der Geschichten. Big Joe ist IT-Direktor und in der entstehenden Organisation schon so etwas wie der informelle CIO. Gemeinsam mit der Geschäftsführung und weiteren Kolleginnen und Kollegen machen sie aus einem abstrakten Modellunternehmen eine lebendige Unternehmenswelt.
+
+Die Figuren sind bewusst überzeichnet und tragen teilweise tierische Züge. Ihre seriösen Namen können durch pointierte Spitznamen ergänzt werden. Was in dieser Welt geschieht, kann eine fachliche Frage für das SAP-Modell auslösen – oder einfach unterhaltsam sein.
 
 > Alle dargestellten Personen, Dialoge und Ereignisse sind fiktiv. Die Figuren sind keine Abbilder aktueller oder früherer Kolleginnen, Kollegen, Arbeitgeber oder Kunden.
 
-## Business Episodes
+<div class="inside-hub">
+<a class="inside-hub-card" href="{{ '/inside-llsg/business-episodes/' | relative_url }}">
+<span class="explore-index">01 · Business</span>
+<h2>Business Episodes</h2>
+<p>Geschäftliche Situationen, Konflikte und Entscheidungen – mit klarer Brücke zur SAP Journey.</p>
+<span class="card-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="inside-hub-card featured" href="{{ '/inside-llsg/off-duty/' | relative_url }}">
+<span class="explore-index">02 · Stories</span>
+<h2>Off Duty</h2>
+<p>Das private Leben der Figuren, Ruhrgebiet, Freundschaft und Geschichten ohne erzwungenen SAP-Bezug.</p>
+<span class="card-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="inside-hub-card" href="{{ '/inside-llsg/people/' | relative_url }}">
+<span class="explore-index">03 · People</span>
+<h2>People of LLSG</h2>
+<p>Figurenprofile mit Rolle, Charakter, Spitznamen, Story-Funktion und später den zugehörigen Bildern.</p>
+<span class="card-arrow" aria-hidden="true">↗</span>
+</a>
+</div>
 
-**Business Episodes** erzählen Situationen aus dem beruflichen Alltag von LLSG. Ausgangspunkt können beispielsweise eine Kundenanforderung, ein Qualitätsproblem, eine Managemententscheidung, ein Konflikt zwischen Abteilungen oder eine unerwartete Situation im Tagesgeschäft sein.
+## Klare redaktionelle Trennung
 
-Business Episodes sind ausdrücklich **keine User Stories im Scrum-Sinn**. Es handelt sich um narrative Episoden, aus denen sich fachliche Anforderungen oder offene Fragen ergeben können.
-
-Wenn eine Episode für das SAP-Modell relevant ist, erhält sie am Ende einen klar getrennten Abschnitt:
-
-### Bedeutung für das SAP-Modell
-
-- geschäftlicher Auslöser
-- fachliche Anforderung
-- daraus entstehende SAP-Frage
-- Entscheidungs- oder Umsetzungsstatus
-- Verknüpfung zur dokumentierten Umsetzung
-
-Eine erzählte Anforderung ist noch kein Nachweis ihrer Umsetzung. Erst die zugehörige Dokumentation innerhalb der **SAP Journey** zeigt, was tatsächlich beschlossen, implementiert und getestet wurde.
-
-## Off Duty
-
-**Off Duty** umfasst private, humorvolle oder charakterbezogene Episoden außerhalb des unmittelbaren Geschäftsprozesses.
-
-Diese Beiträge müssen weder eine SAP-Anforderung erzeugen noch eine fachliche Botschaft transportieren. Sie dürfen Figuren weiterentwickeln, Beziehungen sichtbar machen, die Rhein-Ruhr-Welt von LLSG ausgestalten oder einfach nur unterhalten.
-
-## Verbindung von Erzählung und Umsetzung
-
-Inside LLSG erzählt, **warum** innerhalb des Modellunternehmens etwas geschieht. Dabei werden auch in etwas überspitzter Form die alltäglichen Umstände, Hindernisse, Missverständnisse und allzumenschlichen Hürden geschildert, die den Arbeitsalltag in einer IT Abteilung in der Zusammenarbeit mit den Geschäftsbereichen kennzeichnen und Projektverläufe kennzeichnen. Hier gibt es jedoch im Gegensatz zu Off Duty immer einen konkreten Bezug zum Thema "SAP Einführung und Change Management".
-
-Die SAP Journey dokumentiert, **wie** daraus ein Geschäftsprozess, eine Architekturentscheidung oder eine konkrete Umsetzung in SAP S/4HANA entsteht.
-
-Beide Ebenen können miteinander verbunden werden, bleiben aber klar unterscheidbar:
-
-- Die Episode liefert den geschäftlichen und menschlichen Kontext.
-- Die SAP-Dokumentation beschreibt Entscheidung und Umsetzung.
-- Das Build Journal hält den tatsächlichen Projektfortschritt fest.
+Business Episodes dürfen eine fachliche Frage auslösen, sind aber kein Umsetzungsnachweis. Die dokumentierte Entscheidung steht unter **Prozesse & Lösungsdesign**, das Testergebnis unter **Test & Nachweise** und der tatsächliche zeitliche Verlauf im **Build Journal**. Off-Duty-Geschichten bleiben bewusst außerhalb dieser fachlichen Nachweiskette.
