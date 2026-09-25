@@ -16,7 +16,7 @@ nav_llsg: true
 ## Produkte
 
 <div class="product-grid">
-{% assign products = site.pages | where_exp: "item", "item.product_id and item.published != false" | sort: "title" %}
+{% assign products = site.pages | where_exp: "item", "item.product_id != nil" | where_exp: "item", "item.published != false" | sort: "title" %}
 {% for product in products %}
   <article class="product-card">
     <div class="product-media">{% if product.image %}<img src="{{ product.image | relative_url | escape }}" alt="{{ product.image_alt | escape }}" width="800" height="600" loading="lazy">{% else %}<span>Produktvisualisierung in Vorbereitung</span>{% endif %}</div>
